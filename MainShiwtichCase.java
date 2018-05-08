@@ -1,4 +1,6 @@
-package Lista_2_Estrutura_De_Decisao;
+
+package Lista_2_estrutura_de_decisao;
+
 
 import javax.swing.JOptionPane;
 import java.util.List;
@@ -45,7 +47,7 @@ public class MainShiwtichCase {
 						case 3: 
 							Exercicio03 ex3 = new Exercicio03();
 							try {						
-								ex3.setGenero(JOptionPane.showInputDialog("Qual é seu Genero: \n"+ "(M) Masculino \n" + "(F) Feminino"));
+								ex3.setGenero(JOptionPane.showInputDialog("Qual Ã© seu Genero: \n"+ "(M) Masculino \n" + "(F) Feminino"));
 							}
 							catch (java.lang.NullPointerException ex) {
 								JOptionPane.showMessageDialog(null, "Digite Apenas (F) para Feminino ou (M) para Masculino", "Error", JOptionPane.INFORMATION_MESSAGE);
@@ -53,22 +55,22 @@ public class MainShiwtichCase {
 								break;
 							}
 							ex3.setAltura(Double.parseDouble(JOptionPane.showInputDialog(null, "Qual a sua Altura")));
-							JOptionPane.showMessageDialog(null, "Seu Peso ideal é: " + ex3.calcularPesoIdeal() ,"Peso Ideal", JOptionPane.INFORMATION_MESSAGE);
+							JOptionPane.showMessageDialog(null, "Seu Peso ideal Ã©: " + ex3.calcularPesoIdeal() ,"Peso Ideal", JOptionPane.INFORMATION_MESSAGE);
 							sair = true;
 							break;
 							
 						case 4:
 							Exercicio04 ex4 = new Exercicio04();
 							try {						
-								ex4.setTipoCarro(JOptionPane.showInputDialog("Qual é o tipo de Combustivel que seu carro usa : \n" + "(G) Gasolina\n" + "(A) Alcool" ));
+								ex4.setTipoCarro(JOptionPane.showInputDialog("Qual Ã© o tipo de Combustivel que seu carro usa : \n" + "(G) Gasolina\n" + "(A) Alcool" ));
 							}
 							catch (java.lang.NullPointerException ex) {
 								JOptionPane.showMessageDialog(null, "Digite Apenas (G) Gasolina ou (A) Alcool", "Error", JOptionPane.INFORMATION_MESSAGE);
 								sair = true;
 								break;
 							}
-							ex4.setTamanhoTanque(Double.parseDouble(JOptionPane.showInputDialog(null, "Qual é a capacidade do seu Tanque")));
-							JOptionPane.showMessageDialog(null, "Voçê ira gastar R$" + ex4.calcularPreçoTanqueDoCarro() + " reais para encher o tanque do seu carro", "Valor Tanque Cheio", JOptionPane.INFORMATION_MESSAGE);
+							ex4.setTamanhoTanque(Double.parseDouble(JOptionPane.showInputDialog(null, "Qual Ã© a capacidade do seu Tanque")));
+							JOptionPane.showMessageDialog(null, "VoÃ§Ãª ira gastar R$" + ex4.calcularPreÃ§oTanqueDoCarro() + " reais para encher o tanque do seu carro", "Valor Tanque Cheio", JOptionPane.INFORMATION_MESSAGE);
 							
 							sair = true;
 							break;
@@ -85,9 +87,9 @@ public class MainShiwtichCase {
 							Exercicio06 ex6 = new Exercicio06();
 							ex6.setPreco(Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor do Produto: ")));
 							if ( ex6.getPreco() >= 50.0 && ex6.getPreco() <= 100.0)
-								JOptionPane.showMessageDialog(null, "O Produto Esta em Promoção", "Preço", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(null, "O Produto Esta em PromoÃ§Ã£o", "PreÃ§o", JOptionPane.WARNING_MESSAGE);
 							else 
-								JOptionPane.showMessageDialog(null, "O Produto Esta com o preço normal", "Preço", JOptionPane.INFORMATION_MESSAGE);
+								JOptionPane.showMessageDialog(null, "O Produto Esta com o preÃ§o normal", "PreÃ§o", JOptionPane.INFORMATION_MESSAGE);
 							sair = true;
 							break;
 						
@@ -126,7 +128,7 @@ public class MainShiwtichCase {
 							else
 								ex9.setSalarioFuncionario(ex9.getSalarioFuncionario()*1.05);
 							
-							JOptionPane.showMessageDialog(null, "O valor do novo salario do funcionario é : " + ex9.getSalarioFuncionario(), "Almento de Salario", JOptionPane.INFORMATION_MESSAGE);
+							JOptionPane.showMessageDialog(null, "O valor do novo salario do funcionario Ã© : " + ex9.getSalarioFuncionario(), "Almento de Salario", JOptionPane.INFORMATION_MESSAGE);
 							
 							sair = true;
 							break;
@@ -144,22 +146,60 @@ public class MainShiwtichCase {
 						case 11:
 							Exercicio11 ex11 = new Exercicio11();
 							
-							
+							ex11.setCodigoLivro(JOptionPane.showInputDialog("Digite o codigo do Livro: " ));
+                                                        
+                                                        JOptionPane.showMessageDialog(null, exercicio11(ex11.getCodigoLivro()), "Tipo do livro", JOptionPane.INFORMATION_MESSAGE);
 							
 							sair = true;
 							break;
 						case 12:
 							Exercicio12 ex12 = new Exercicio12();
-							
-							sair = true;
+							ex12.setTemperaturaTermometro(Double.parseDouble(JOptionPane.showInputDialog("Digite a temperatura do termometro")));
+							JOptionPane.showMessageDialog(null, "A temperatura estÃ¡" + exercicio12(ex12.setTemperaturaTermometro()), "Temperatura", JOptionPane.INFORMATION_MESSAGE);
+                                                        
+                                                        sair = true;
 							break;
 						case 13:
-														
-							
+							Exercicio13 ex13 = new Exercicio13();
+                                                        ex13.setDinheiroEmCaixa(Double.parseDouble(JOptionPane.showInputDialog("Digite o valor em caixa")));
+							ex13.setPrecoDeCadaUnidade(Double.parseDouble(JOptionPane.showInputDialog("Digite o valor pro produto")));
+                                                        ex13.setQuantidadeDeProdutos(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a quantidade de produtos: ")));
+                                                        Double total =ex13.getQuantidadeDeProdutos() *ex13.getPrecoDeCadaUnidade() ;
+                                                        if ( total < ( ex13.getDinheiroEmCaixa() * 0.80)){  
+                                                            total = total * 0.95;
+                                                            JOptionPane.showMessageDialog(null, "O valor sera paga a vista, em um total de " + total);
+                                                        }
+                                                        else {
+                                                            total = total * 1.10;
+                                                            JOptionPane.showMessageDialog(null, "O valor sera paga a Prazo em 3x , em um total de " + total);
+                                                        }
 							sair = true;
 							break;
+                                                case 14:
+                                                        Exercicio14 ex14 = new Exercicio14();
+                                                        ex14.setValorPorHoraTrabalhada(Double.parseDouble(JOptionPane.showInputDialog("Digite da hora trabalhada")));
+                                                        ex14.setHorasTrabalhadas(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a quantidade de horas trabalhadas: ")));
+                                                        Double salarioBrutoEINSS = (ex14.getHorasTrabalhadas() * ex14.getValorPorHoraTrabalhada()* 0.89);
+                                                        JOptionPane.showMessageDialog(null,"O valor do salario liquido Ã© de : " + exercicio14(salarioBrutoEINSS));
+                                                        sair = true;
+                                                        break;
+                                                case 15:
+                                                        Exercicio15 ex15 = new Exercicio15();
+                                                        ex15.setValorPorHoraTrabalhada(Double.parseDouble(JOptionPane.showInputDialog("Digite da hora trabalhada")));
+                                                        ex15.setHorasTrabalhadas(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a quantidade de horas trabalhadas: ")));
+                                                        salarioBrutoEINSS = (ex15.getHorasTrabalhadas() * ex15.getValorPorHoraTrabalhada() * 0.89);
+                                                        JOptionPane.showMessageDialog(null, "O valor do salario liquido Ã© de : " + exercicio15(salarioBrutoEINSS));
+                                                        sair = true;
+                                                        break;
+                                                case 16:
+                                                        Exercicio16 ex16 = new Exercicio16();
+                                                        ex16.setPrecoEtiqueta(Double.parseDouble(JOptionPane.showInputDialog("Digite o preco da etiqueta")));
+                                                        ex16.setCodigoPagamento(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o codigo da Etiqueta: ")));
+                                                        JOptionPane.showMessageDialog(null, "O valor do produto sera de : " + exercicio15(ex16.getPrecoEtiqueta() , ex16.getCodigoPagamento()));
+                                                        sair = true;
+                                                        break;
 						default:
-							JOptionPane.showMessageDialog(null,"Você tem que digitar um valor entre 1 e 25");
+							JOptionPane.showMessageDialog(null,"VocÃª tem que digitar um valor entre 1 e 25");
 							sair = true;
 							break;
 							
@@ -191,11 +231,61 @@ public class MainShiwtichCase {
 		
 		return numeroB - numeroA;
 			
-		
+	         
 		
 	}
+        private static String exercicio11(String codigo) {
+            if( codigo.equals("A"))
+                return "FicÃ§Ã£o";
+            if (codigo.equals("B"))
+                return "NÃ£o FicÃ§Ã£o";
+            return "InvÃ¡lido";    
+        }
+        private static String exercicio12(Double temperatura) {
+            if ( temperatura < 100 )
+                return " muito Baixa";
+            else if ( temperatura >= 100 && temperatura <= 200 )
+                return " baixa";
+            else if (  temperatura > 200 && temperatura < 500  )            
+                return " normal";
+            return " Muito Alta";      
+        }
+        private static Double exercicio14(Double salarioBruto){
+            if (salarioBruto <= 1257.12)
+                return salarioBruto;
+            else if ( salarioBruto > 1257.12 && salarioBruto <= 2512.08 )
+                return salarioBruto*0.85;
+            return salarioBruto * 0.725;
+        }
+        private static Double exercicio15(Double salarioBruto){
+            if (salarioBruto <= 800.45)
+                return salarioBruto * 0.9235;
+            else if ( salarioBruto > 800.45 && salarioBruto <= 900.0 )
+                return salarioBruto*0.9135;
+            else if ( salarioBruto> 900.0 && salarioBruto <= 1334.07)
+                return salarioBruto*0.91;
+            else if ( salarioBruto > 1334.07 && salarioBruto <= 2668.15 )
+                return salarioBruto*0.89;
+            return salarioBruto - 293.50;
+        }
+        
+        private static Double exercicio16(Double valorEtiqueta, int codigoEtiqueta){
+            if (codigoEtiqueta == 1)
+                return valorEtiqueta * 0.90;
+            else if ( valorEtiqueta == 2 )
+                return valorEtiqueta * 0.95;
+            else if ( valorEtiqueta == 3 )
+                return valorEtiqueta;
+            else 
+                return valorEtiqueta*1.10;
+            
+        }
 
 }
+
+	
+
+
 
 	
 
